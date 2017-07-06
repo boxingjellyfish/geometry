@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class UIManagerScript : MonoBehaviour
 {
     public Transform squarePrefab;
+    public Transform cubePrefab;
 
     // Use this for initialization
     void Start()
@@ -66,5 +67,11 @@ public class UIManagerScript : MonoBehaviour
             );
         lineRenderer.colorGradient = gradient;
         */
+    }
+
+    public void AddCubeClick()
+    {
+        var newSquare = Instantiate(cubePrefab, new Vector3(Random.Range(-25, 25), Random.Range(-20, 20), 0), Quaternion.identity);
+        newSquare.transform.parent = GameObject.Find("_Dynamic").transform;
     }
 }
