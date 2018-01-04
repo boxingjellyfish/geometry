@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class UIManagerScript : MonoBehaviour
 {
     public Transform squarePrefab;
-    public Transform cubePrefab;
 
     // Use this for initialization
     void Start()
@@ -42,23 +41,30 @@ public class UIManagerScript : MonoBehaviour
 
     public void AddRectangleClick()
     {
-        var newSquare = Instantiate(squarePrefab, new Vector3(Random.Range(-25, 25), Random.Range(-20, 20), 0), Quaternion.identity);
+        var newSquare = Instantiate(squarePrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+        newSquare.name = "GreenSquare";
         newSquare.transform.parent = GameObject.Find("_Dynamic").transform;
-        /*
-        GameObject shape = new GameObject();
+
+        GameObject shape = new GameObject("LineRenderer");
         shape.transform.parent = GameObject.Find("_Dynamic").transform;
-        shape.transform.position = new Vector3(Random.Range(0,10), Random.Range(0, 10), 0);
+        shape.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
+
+        shape.AddComponent<CircularMotionScript>();
 
         Color c1 = Color.yellow;
         Color c2 = Color.red;
-        int lengthOfLineRenderer = 20;
 
         LineRenderer lineRenderer = shape.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
-        lineRenderer.widthMultiplier = 0.2f;
-        lineRenderer.positionCount = lengthOfLineRenderer;
+        lineRenderer.widthMultiplier = 0.1f;
+        lineRenderer.positionCount = 4;
+        lineRenderer.useWorldSpace = false;
+        lineRenderer.loop = true;
+        lineRenderer.SetPosition(0, new Vector3(0, 0, 0));
+        lineRenderer.SetPosition(1, new Vector3(0, 4, 0));
+        lineRenderer.SetPosition(2, new Vector3(4, 4, 0));
+        lineRenderer.SetPosition(3, new Vector3(4, 0, 0));
 
-        // A simple 2 color gradient with a fixed alpha of 1.0f.
         float alpha = 1.0f;
         Gradient gradient = new Gradient();
         gradient.SetKeys(
@@ -66,12 +72,5 @@ public class UIManagerScript : MonoBehaviour
             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
             );
         lineRenderer.colorGradient = gradient;
-        */
-    }
-
-    public void AddCubeClick()
-    {
-        var newSquare = Instantiate(cubePrefab, new Vector3(Random.Range(-25, 25), Random.Range(-20, 20), 0), Quaternion.identity);
-        newSquare.transform.parent = GameObject.Find("_Dynamic").transform;
     }
 }

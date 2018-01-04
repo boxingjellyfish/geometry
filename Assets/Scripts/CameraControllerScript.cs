@@ -40,7 +40,7 @@ public class CameraControllerScript : MonoBehaviour {
 
         if(Input.GetButton("Fire3"))
         {
-            nextPosition = new Vector3(0, 0, -10);
+            nextPosition = new Vector3(0, 0, -30);
         }
         
         transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime * lerpSpeed);

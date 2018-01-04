@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 540921890}
   - component: {fileID: 540921889}
   m_Layer: 0
-  m_Name: Text
+  m_Name: AddRectangleButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Add Rectangle
+  m_Text: +
 --- !u!222 &540921890
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -505,7 +505,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squarePrefab: {fileID: 4333103721375736, guid: cfe0d0a34e6033641bd816ea5c42935a,
     type: 2}
-  cubePrefab: {fileID: 0}
 --- !u!1 &578732162
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +598,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4577767005552498, guid: 9fe21cccada5aab4cb1a50eb583ae397, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 4577767005552498, guid: 9fe21cccada5aab4cb1a50eb583ae397, type: 2}
       propertyPath: m_LocalRotation.x
@@ -704,10 +703,10 @@ RectTransform:
   m_Father: {fileID: 1254886297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -40, y: -40}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1093512205
 MonoBehaviour:
