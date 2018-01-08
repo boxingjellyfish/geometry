@@ -17,6 +17,8 @@ public class CameraControllerScript : MonoBehaviour {
     public float lerpSpeed;
 
     private Vector3 nextPosition;
+    private float padScroll;
+    private float mouseScroll;
 
     // Use this for initialization
     void Start ()
@@ -33,8 +35,9 @@ public class CameraControllerScript : MonoBehaviour {
         nextPosition.y += Input.GetAxis("Vertical") * moveSpeed;
         nextPosition.y = nextPosition.y < minY ? minY : nextPosition.y;
         nextPosition.y = nextPosition.y > maxY ? maxY : nextPosition.y;
-        
-        nextPosition.z += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+
+        mouseScroll = Input.GetAxis("Mouse ScrollWheel");
+        nextPosition.z += (mouseScroll != 0 ? mouseScroll : padScroll) * zoomSpeed;
         nextPosition.z = nextPosition.z < zoomMin ? zoomMin : nextPosition.z;
         nextPosition.z = nextPosition.z> zoomMax ? zoomMax : nextPosition.z;
 
@@ -45,4 +48,15 @@ public class CameraControllerScript : MonoBehaviour {
         
         transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime * lerpSpeed);
     }
+
+    //Get TrackPad Scroll
+    void OnGUI()
+    {
+        if (Event.current.type == EventType.ScrollWheel)
+            padScroll = -Event.current.delta.y / 100;
+        else
+            padScroll = 0;
+    }
+
+
 }
